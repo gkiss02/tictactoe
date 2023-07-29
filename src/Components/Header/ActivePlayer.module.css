@@ -1,5 +1,6 @@
 .container {
     display: flex;
+    justify-content: center;
     background-color: #24353f;
     padding: 1rem;
     border-radius: 5px;
