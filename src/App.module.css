@@ -1,0 +1,19 @@
+.container {
+    width: 75%;
+    margin: 3rem auto;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.field-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 600px;
+    height: 600px;
+    gap: 1rem;
+    margin: 3rem auto;
+}
