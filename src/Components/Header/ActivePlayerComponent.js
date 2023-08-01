@@ -1,10 +1,10 @@
-import styles from './ActivePlayer.module.css'
+import styles from './ActivePlayerComponent.module.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
-function ActivePlayer () {
+function ActivePlayerComponent () {
     return (
         <div className={styles.container}>
             <FontAwesomeIcon icon={faCircle} size={'2x'} color='#e5ac4d' />
@@ -13,4 +13,4 @@ function ActivePlayer () {
     )
 }
 
-export default ActivePlayer;
+export default ActivePlayerComponent;
