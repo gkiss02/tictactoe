@@ -10,12 +10,12 @@ function ActivePlayerIcon () {
 
     if (!activePlayer) {
         return (
+            <FontAwesomeIcon icon={faCircle} size={'2x'} color='#e5ac4d' />
+            )
+        }
+        return (
             <FontAwesomeIcon icon={faX} size={'2x'} color='#61c0bc'/>
         )
-    }
-    return (
-        <FontAwesomeIcon icon={faCircle} size={'2x'} color='#e5ac4d' />
-    )
 }
 
 export default  ActivePlayerIcon;

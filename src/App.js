@@ -23,9 +23,9 @@ function App() {
         </header>
         <FieldContainer></FieldContainer>
         <section className={styles['result-container']}>
-          <ResultCard name='Player 1' result={23} color='#e5ac4d'></ResultCard>
+          <ResultCard name='Player 1' result={3} color='#61c0bc'></ResultCard>
           <ResultCard name='Tie' result={11} color='#acbec7'></ResultCard>
-          <ResultCard name='Player 2' result={3} color='#61c0bc'></ResultCard>
+          <ResultCard name='Player 2' result={23} color='#e5ac4d'></ResultCard>
         </section>
       </div>
     </ActivePlayer.Provider>

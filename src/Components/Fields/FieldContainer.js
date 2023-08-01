@@ -13,10 +13,12 @@ function FieldContainer () {
         setActivePlayer(!activePlayer);
     }
 
+    console.log(activePlayer);
+
     return (
         <section className={styles['field-container']}>
         {arr.map((item, index) =>
-            <Field key={index} playerHandler={playerHandler}></Field>
+            <Field key={index} index={index} playerHandler={playerHandler}></Field>
         )}
         </section>
     )
