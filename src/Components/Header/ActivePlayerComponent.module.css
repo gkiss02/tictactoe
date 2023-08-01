@@ -1,13 +1,19 @@
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #24353f;
-    padding: 1rem;
     border-radius: 5px;
     box-shadow: 0 .5rem #122029;
+    width: 10rem;
+    height: 3rem;
+    align-items: center;
 }
 
 .title {
     font-weight: bold;
-    margin-left: 1rem;
+    margin-right: 1.5rem;
+}
+
+.icon {
+    margin-left: 1.5rem;
 }
