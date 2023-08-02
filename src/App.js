@@ -8,27 +8,33 @@ import ResartButton from './Components/Header/ResartButton';
 import FieldContainer from './Components/Fields/FieldContainer';
 import ResultCard from './Components/Result/ResultCard';
 
-import { ActivePlayer } from './Context/ActivePlayer'
+import { ActivePlayer } from './Context/Context'
+import { Player1Arr } from './Context/Context';
+import { Player2Arr } from './Context/Context';
 
 function App() {
   const [activePlayer, setActivePlayer] = useState(true);
 
   return (
-    <ActivePlayer.Provider value={[activePlayer, setActivePlayer]}>
-      <div className={styles.container}>
-        <header className={styles['header-container']}>
-          <PlayerInformation></PlayerInformation>
-          <ActivePlayerComponent></ActivePlayerComponent>
-          <ResartButton></ResartButton>
-        </header>
+    <Player2Arr.Provider value={[]}>
+      <Player1Arr.Provider value={[]}>
+        <ActivePlayer.Provider value={[activePlayer, setActivePlayer]}>
+          <div className={styles.container}>
+            <header className={styles['header-container']}>
+              <PlayerInformation></PlayerInformation>
+              <ActivePlayerComponent></ActivePlayerComponent>
+              <ResartButton></ResartButton>
+            </header>
         <FieldContainer></FieldContainer>
-        <section className={styles['result-container']}>
-          <ResultCard name='Player 1' result={3} color='#61c0bc'></ResultCard>
-          <ResultCard name='Tie' result={11} color='#acbec7'></ResultCard>
-          <ResultCard name='Player 2' result={23} color='#e5ac4d'></ResultCard>
-        </section>
-      </div>
-    </ActivePlayer.Provider>
+          <section className={styles['result-container']}>
+            <ResultCard name='Player 1' result={3} color='#61c0bc'></ResultCard>
+            <ResultCard name='Tie' result={11} color='#acbec7'></ResultCard>
+            <ResultCard name='Player 2' result={23} color='#e5ac4d'></ResultCard>
+          </section>
+        </div>
+      </ActivePlayer.Provider>
+      </Player1Arr.Provider>
+    </Player2Arr.Provider>
   );
 }
 

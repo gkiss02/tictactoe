@@ -1,7 +1,7 @@
 import styles from './FieldContainer.module.css'
 
 import Field from './Field'
-import { ActivePlayer } from '../../Context/ActivePlayer';
+import { ActivePlayer } from '../../Context/Context';
 import { useContext } from 'react';
 
 function FieldContainer () {

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
-import { ActivePlayer } from '../../Context/ActivePlayer';
+import { ActivePlayer } from '../../Context/Context';
 import { useContext } from 'react'
 
 function ActivePlayerIcon () {
