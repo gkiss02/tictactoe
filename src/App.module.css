@@ -1,6 +1,6 @@
 .container {
     width: 75%;
-    margin: 3rem auto;
+    margin: 3rem auto 0;
 }
 .header-container {
     display: flex;

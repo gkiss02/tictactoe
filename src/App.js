@@ -4,7 +4,7 @@ import styles from './App.module.css';
 
 import PlayerInformation from './Components/Header/PlayerInformation';
 import ActivePlayerComponent from './Components/Header/ActivePlayerComponent'
-import ResartButton from './Components/Header/ResartButton';
+import RestartButton from './Components/Header/RestartButton';
 import FieldContainer from './Components/Fields/FieldContainer';
 import ResultCard from './Components/Result/ResultCard';
 
@@ -23,7 +23,7 @@ function App() {
             <header className={styles['header-container']}>
               <PlayerInformation></PlayerInformation>
               <ActivePlayerComponent></ActivePlayerComponent>
-              <ResartButton></ResartButton>
+              <RestartButton></RestartButton>
             </header>
         <FieldContainer></FieldContainer>
           <section className={styles['result-container']}>

@@ -1,9 +1,9 @@
-import styles from './ResartButton.module.css'
+import styles from './RestartButton.module.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotateRight } from '@fortawesome/free-solid-svg-icons'
 
-function ResartButton () {
+function RestartButton () {
     return (
         <div className={styles.container}>
             <FontAwesomeIcon icon={faRotateRight} color={'#1d2a31'} size={'3x'} className={styles.icon}/>
@@ -11,4 +11,4 @@ function ResartButton () {
     )
 }
 
-export default ResartButton
+export default RestartButton;

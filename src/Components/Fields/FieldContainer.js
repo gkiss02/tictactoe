@@ -1,7 +1,10 @@
 import styles from './FieldContainer.module.css'
+
 import Field from './Field'
+import Modal from '../Modal/Modal'
+
 import { ActivePlayer } from '../../Context/Context';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 
 function FieldContainer () {
     const arr = [0,1,2,3,4,5,6,7,8];
@@ -30,20 +33,18 @@ function FieldContainer () {
         return true;
     }
 
-    console.log(winnerArr);
-
     return (
         <section className={styles.container}>
-            {arr.map((item, index) =>
-                <Field 
-                    key={item} 
-                    index={item} 
-                    playerHandler={playerHandler} 
-                    winnerArrFunc={winnerArrFunc} 
-                    winnerElements={winnerArr && winnerArr.includes(index)}>
-                </Field>
-            )}
-        </section>
+        {arr.map((item, index) =>
+        <Field 
+            key={item} 
+            index={item} 
+            playerHandler={playerHandler} 
+            winnerArrFunc={winnerArrFunc} 
+            winnerElements={winnerArr && winnerArr.includes(index)}>
+        </Field>
+        )}
+    </section>
     )
 }
 

@@ -25,9 +25,8 @@ function Field (props) {
     const [activePlayer, setActivePlayer] = useContext(ActivePlayer)
     const [buttonClicked, setButtonClicked] = useState(false);
     const [playerClicked, setPlayerClicked] = useState()
-
-    const player1Arr = useContext(Player1Arr);
-    const player2Arr = useContext(Player2Arr);
+    const [player1Arr, setPlayer1Arr] = useState(useContext(Player1Arr))
+    const [player2Arr, setPlayer2Arr] = useState(useContext(Player2Arr))
 
     const activePlayerArr = !activePlayer ? player1Arr : player2Arr;
 
