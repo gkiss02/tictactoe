@@ -14,10 +14,12 @@ import { Player2Arr } from './Context/Context';
 
 function App() {
   const [activePlayer, setActivePlayer] = useState(true);
+  const [player1Arr, setPlayer1Arr] = useState([]);
+  const [player2Arr, setPlayer2Arr] = useState([]);
 
   return (
-    <Player2Arr.Provider value={[]}>
-      <Player1Arr.Provider value={[]}>
+    <Player2Arr.Provider value={[player1Arr, setPlayer1Arr]}>
+      <Player1Arr.Provider value={[player2Arr, setPlayer2Arr]}>
         <ActivePlayer.Provider value={[activePlayer, setActivePlayer]}>
           <div className={styles.container}>
             <header className={styles['header-container']}>
