@@ -4,7 +4,7 @@ import Field from './Field'
 import Modal from '../Modal/Modal'
 
 import { ActivePlayer } from '../../Context/Context';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 function winnerDecider (arr) {
     if ((arr.includes(0) && arr.includes(1) && arr.includes(2))) return [0, 1 ,2];
@@ -21,14 +21,14 @@ function FieldContainer () {
     const arr = [0,1,2,3,4,5,6,7,8]
 
     const [activePlayer, setActivePlayer] = useContext(ActivePlayer)
+    const [modalShow, setModalShow] = useState(false);
     let [player1Arr, setPlayer1Arr] = useState([])
     let [player2Arr, setPlayer2Arr] = useState([])
 
     function arrReset() {
-        player1Arr = []
-        player2Arr = []
-        console.log(player1Arr);
-        console.log(player2Arr);
+        setPlayer1Arr([])
+        setPlayer2Arr([])
+        setModalShow(false)
         setActivePlayer(true)
     }
 
@@ -37,10 +37,12 @@ function FieldContainer () {
         setActivePlayer(!activePlayer)
     }
 
+    
     let player1Win = winnerDecider(player1Arr)
     let player2Win = winnerDecider(player2Arr)
-    let winnerArr;
+    let winnerArr = [];
     let isWinner = false;
+    console.log(isWinner);
 
     if (player1Win != undefined) {
         winnerArr = player1Win;
@@ -52,9 +54,17 @@ function FieldContainer () {
         isWinner = true;
     }
 
+    useEffect(() => {
+        if (isWinner) {
+            setTimeout(() => {
+                setModalShow(true);
+            }, 5000);
+        }
+    }, [isWinner]);
+
     return (
         <section className={styles.container}>
-            {isWinner && <Modal activePlayer={activePlayer} arrReset={arrReset}></Modal>}
+            {modalShow && <Modal activePlayer={activePlayer} arrReset={arrReset}></Modal>}
         {arr.map(item =>
         <Field
             key={item}
@@ -64,6 +74,7 @@ function FieldContainer () {
             player2clicked = {player2Arr.includes(item)}
             winnerArr = {isWinner && winnerArr.includes(item)}
             isWinner = {isWinner}
+            modalShow={modalShow}
         >
         </Field>
         )}

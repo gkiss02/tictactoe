@@ -18,7 +18,7 @@
 
 .win {
     animation-name: win;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 5;
     animation-duration: .8s;
     animation-timing-function: ease-in-out;
 }

@@ -3,8 +3,6 @@ import {createPortal} from 'react-dom';
 import styles from './Modal.module.css'
 
 function Modal (props) {
-    console.log(props.activePlayer);
-
     return (
         createPortal(
             <div className={styles.container}>
