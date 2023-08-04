@@ -2,13 +2,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
-import { ActivePlayer } from '../../Context/Context';
+import { ActivePlayerContext } from '../../Context/Context';
 import { useContext } from 'react'
 
 function ActivePlayerIcon () {
-    const [activePlayer, setActivePlayer] = useContext(ActivePlayer);
+    const activePlayer = useContext(ActivePlayerContext)
 
-    if (!activePlayer) {
+    if (!activePlayer.activePlayer) {
         return (
             <FontAwesomeIcon icon={faCircle} size={'2x'} color='#e5ac4d' />
             )

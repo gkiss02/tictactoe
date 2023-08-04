@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotateRight } from '@fortawesome/free-solid-svg-icons'
 import { useContext } from 'react'
 
-import { Restart } from '../../Context/Context'
+import { RestartContext } from '../../Context/Context'
 
 function RestartButton () {
-    const [restart, setRestart] = useContext(Restart)
+    const restart = useContext(RestartContext)
     function clickHandle () {
-        setRestart(true)
+        restart.setRestart(true)
     } 
     return (
         <div className={styles.container} onClick={clickHandle}>

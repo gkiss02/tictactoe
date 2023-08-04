@@ -3,9 +3,9 @@ import styles from './FieldContainer.module.css'
 import Field from './Field'
 import Modal from '../Modal/Modal'
 
-import { ActivePlayer } from '../../Context/Context';
-import { Restart } from '../../Context/Context';
-import { Player1Score } from '../../Context/Context';
+import { ActivePlayerContext } from '../../Context/Context';
+import { RestartContext } from '../../Context/Context';
+import { PlayerScoresContext } from '../../Context/Context';
 import { useContext, useState, useEffect } from 'react';
 
 function winnerDecider (arr) {
@@ -27,9 +27,9 @@ function draw (arr1, arr2, winnerArr) {
 function FieldContainer () {
     const arr = [0,1,2,3,4,5,6,7,8]
 
-    const ctx = useContext(Player1Score);
-    const [restart, setRestart] = useContext(Restart)
-    const [activePlayer, setActivePlayer] = useContext(ActivePlayer)
+    const scoresArr = useContext(PlayerScoresContext);
+    const activePlayer = useContext(ActivePlayerContext)
+    const restart = useContext(RestartContext)
     const [modalShow, setModalShow] = useState(false);
     let [player1Arr, setPlayer1Arr] = useState([])
     let [player2Arr, setPlayer2Arr] = useState([])
@@ -38,21 +38,19 @@ function FieldContainer () {
         setPlayer1Arr([])
         setPlayer2Arr([])
         setModalShow(false)
-        setActivePlayer(true)
-        setRestart(false)
+        activePlayer.setActivePlayer(true)
+        restart.setRestart(false)
     }
 
-
-    if (restart) setTimeout(() => {
+    if (restart.restart) setTimeout(() => {
         arrReset()
     }, 100);
 
     function addClicked (element) {
-        activePlayer ? player1Arr.push(element) : player2Arr.push(element)
-        setActivePlayer(!activePlayer)
+        activePlayer.activePlayer ? player1Arr.push(element) : player2Arr.push(element)
+        activePlayer.setActivePlayer(!activePlayer.activePlayer)
     }
 
-    
     let player1Win = winnerDecider(player1Arr)
     let player2Win = winnerDecider(player2Arr)
     let winnerArr = [];
@@ -71,9 +69,9 @@ function FieldContainer () {
     const drawGame = draw(player1Arr, player2Arr, winnerArr);
 
     useEffect (() => {
-        if (player1Win != undefined) ctx.setScore([ctx.score[0] + 1, ctx.score[1], ctx.score[2]])
-        if (drawGame) ctx.setScore([ctx.score[0], ctx.score[1] + 1, ctx.score[2]])
-        if (player2Win != undefined) ctx.setScore([ctx.score[0], ctx.score[1], ctx.score[2] + 1])
+        if (player1Win != undefined) scoresArr.setScore([scoresArr.score[0] + 1, scoresArr.score[1], scoresArr.score[2]])
+        if (drawGame) scoresArr.setScore([scoresArr.score[0], scoresArr.score[1] + 1, scoresArr.score[2]])
+        if (player2Win != undefined) scoresArr.setScore([scoresArr.score[0], scoresArr.score[1], scoresArr.score[2] + 1])
     }, [isWinner, drawGame])
 
     useEffect(() => {
@@ -95,7 +93,7 @@ function FieldContainer () {
 
     return (
         <section className={styles.container}>
-            {modalShow && <Modal activePlayer={activePlayer} draw={drawGame} arrReset={arrReset}></Modal>}
+            {modalShow && <Modal activePlayer={activePlayer.activePlayer} draw={drawGame} arrReset={arrReset}></Modal>}
         {arr.map(item =>
         <Field
             key={item}

@@ -1,10 +1,16 @@
 import { createContext } from 'react'
 
-export const ActivePlayer = createContext();
+export const ActivePlayerContext = createContext({
+    activePlayer: true,
+    setActivePlayer: () => {}
+});
 
-export const Restart = createContext();
+export const RestartContext = createContext({
+    restart: false,
+    setRestart: () => {}
+});
 
-export const Player1Score = createContext({
-    score: 0,
+export const PlayerScoresContext = createContext({
+    scores: 0,
     setScore: () => {}
 })
