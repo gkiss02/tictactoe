@@ -24,7 +24,7 @@ function App() {
             <FieldContainer></FieldContainer>
             <section className={styles['result-container']}>
               <ResultCard name='Player 1' index={0} color='#61c0bc'></ResultCard>
-              <ResultCard name='Tie' index={1} color='#acbec7'></ResultCard>
+              <ResultCard name='Draw' index={1} color='#acbec7'></ResultCard>
               <ResultCard name='Player 2' index={2} color='#e5ac4d'></ResultCard>
             </section>
           </div>
